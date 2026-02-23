@@ -1,7 +1,12 @@
-# Tauri + Vue 3
+# KTRL
 
-This template should help get you started developing with Tauri + Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A pretty radial shortcut menu UI I made controlled by a knob. Will upload a tutorial video soon on youtube. 
 
-## Recommended IDE Setup
+### Keybinds
+Currently, if you don't know how to code, the keybinds to bind the knob to (or if you don't have a knob) are:
+- F1 = Knob Turn Left
+- F2 = Knob Click
+- F3 = Knob Turn Right
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### Support
+Lmk if you have any issues or ideas. This is in VERY EARLY STAGES
