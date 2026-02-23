@@ -1,5 +1,6 @@
 # Ktrl menu structure - edit to customize.
 # Each item: action (key for actions.js), name (displayed in center on hover), icon (optional, defaults to action)
+# For openable items set url (web) or path (local file/exe/.lnk) so they work without code changes.
 # Icons load from assets/icons/{icon}.svg
 # Order: top, right, bottom, left (clockwise from 12 o'clock)
 root:
@@ -10,12 +11,15 @@ root:
       - action: browser
         name: Browser
         icon: browser
+        url: https://google.com
       - action: files
         name: Files
         icon: files
+        path: C:\Windows\explorer.exe
       - action: notes
         name: Notes
         icon: notes
+        path: C:\Windows\System32\notepad.exe
       - action: add-app
         name: Add App
         icon: plus

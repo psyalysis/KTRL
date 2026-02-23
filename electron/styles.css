@@ -230,3 +230,14 @@ html, body {
   padding: 4px;
   word-break: break-word;
 }
+
+.radial-item.no-action-item {
+  color: rgba(255, 120, 120, 0.9);
+}
+.radial-item.no-action-item:hover,
+.radial-item.no-action-item.selected {
+  color: rgba(255, 140, 140, 1);
+}
+.radial-item.no-action-item svg {
+  color: inherit;
+}

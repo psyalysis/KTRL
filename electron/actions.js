@@ -1,25 +1,43 @@
-// Actions keyed by menu item action. Add a function for each action to enable it.
-// Example: browser, files, notes, up, right, down, up-circle, right-circle, settings
-const ACTIONS = {
-  browser: () => {
-    if (window.electronAPI?.openExternal) {
-      window.electronAPI.openExternal('https://google.com')
-    } else {
-      console.log('Browser: open https://google.com')
-    }
-  },
-  files: () => {
-    if (window.electronAPI?.openExternal) {
-      window.electronAPI.openExternal('C:\Users\DREAD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\File Explorer.lnk')
-    } else {
-      console.log('Files: open file explorer located at C:\Users\DREAD\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\File Explorer.lnk')
-    }
-  },
-  notes: () => {
-    if (window.electronAPI?.openExternal) {
-      window.electronAPI.openExternal('C:\Windows\System32\notepad.exe')
-    } else {
-      console.log('Notes: open notepad located at C:\Windows\System32\notepad.exe')
-    }
+// Action registry: items with url/path are opened via openExternal; custom handlers override by action name.
+function openExternal(urlOrPath) {
+  if (window.electronAPI?.openExternal) {
+    window.electronAPI.openExternal(urlOrPath)
+  } else {
+    console.log('Open:', urlOrPath)
   }
 }
+
+const ACTIONS = {
+  // Custom handlers by action name (optional). Items with url/path are handled in runAction in app.js.
+  // Add entries here only for actions that need custom logic without a url/path in menu.yaml.
+}
+
+function runAction(item) {
+  if (!item) return false
+  if (item.url) {
+    openExternal(item.url)
+    return true
+  }
+  if (item.path) {
+    openExternal(item.path)
+    return true
+  }
+  const fn = typeof ACTIONS !== 'undefined' && ACTIONS[item.action]
+  if (typeof fn === 'function') {
+    fn(item)
+    return true
+  }
+  return false
+}
+
+function hasAction(item) {
+  if (!item) return false
+  if (item.isBack || item.isClose) return true
+  if (item.children && item.children.length > 0) return true
+  if (item.url || item.path) return true
+  if (typeof ACTIONS !== 'undefined' && typeof ACTIONS[item.action] === 'function') return true
+  return false
+}
+
+window.runActionFromRegistry = runAction
+window.hasActionFromRegistry = hasAction

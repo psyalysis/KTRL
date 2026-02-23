@@ -1,0 +1,75 @@
+# Menu: list under root. Order = clockwise from top.
+# Item: name (required), id/action (for submenu + icon), icon (optional, defaults to id).
+# Link: open: "https://..." or open: "C:\path\to\app"
+# Submenu: children: [ ... ]. Close: isClose: true
+root:
+  - action: shortcuts
+    name: Shortcuts
+    icon: box
+    children:
+      - action: browser
+        name: Browser
+        icon: globe
+        open: https://google.com
+      - action: files
+        name: Files
+        icon: folder
+        open: C:\Windows\explorer.exe
+      - action: notes
+        name: Notes
+        icon: doc
+        open: C:\Windows\System32\notepad.exe
+      - action: edit-shortcuts
+        name: Edit Shortcuts
+        icon: pencil
+        children:
+          - action: add-file-shortcut
+            name: Add File Shortcut
+            icon: doc
+          - action: add-url-shortcut
+            name: Add URL Shortcut
+            icon: link
+          - action: remove-shortcut
+            name: Remove Shortcut
+            icon: xmark-circle
+  - action: profile:set_profile
+    name: Profile
+    icon: user
+    type: dropdown
+    options:
+      - Profile 1
+      - Profile 2
+      - Profile 3
+    default: 1
+  - action: settings
+    name: Settings
+    icon: gear
+    children:
+      - action: setting:sound_enabled
+        name: Audio
+        icon: speaker-wave-2
+        type: toggle
+        default: true
+      - action: setting:app_size
+        name: App Size
+        icon: fullscreen
+        type: value
+        default: 60
+      - action: setting:app_opacity
+        name: App Opacity
+        icon: eye
+        type: value
+        default: 80
+      - action: setting:app_alignment
+        name: Position
+        icon: arrow-left-arrow-right
+        type: dropdown
+        options:
+          - left
+          - center
+          - right
+        default: center
+  - action: close
+    name: Close
+    icon: power
+    isClose: true

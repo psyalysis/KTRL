@@ -1,14 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri + Vue 3 App</title>
-  </head>
-
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KTRL</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="menu-closed">
+  <div class="radial-viewport">
+  <div class="scale-wrapper">
+  <div class="radial-container" id="radial" aria-hidden="true">
+    <div class="radial-menu" id="radialMenu">
+      <div class="radial-glass"></div>
+      <div class="radial-center" aria-hidden="true">
+        <span class="radial-center-label" id="centerLabel">Menu</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div id="confirmOverlay" class="confirm-overlay" aria-hidden="true">
+    <div class="confirm-backdrop"></div>
+    <div class="confirm-card">
+      <p class="confirm-message" id="confirmMessage">Are you sure?</p>
+      <div class="confirm-actions">
+        <button type="button" class="confirm-btn confirm-btn--cancel" id="confirmKeep">Keep</button>
+        <button type="button" class="confirm-btn confirm-btn--danger" id="confirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+  <div id="urlOverlay" class="url-overlay" aria-hidden="true">
+    <div class="url-backdrop"></div>
+    <div class="url-card">
+      <p class="url-message" id="urlMessage">Enter URL</p>
+      <input type="text" class="url-input" id="urlInput" placeholder="https://example.com" autocomplete="url" />
+      <div class="url-actions">
+        <button type="button" class="url-btn url-btn--cancel" id="urlCancel">Cancel</button>
+        <button type="button" class="url-btn url-btn--primary" id="urlAdd">Add</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/radial-entry.js"></script>
+</body>
 </html>

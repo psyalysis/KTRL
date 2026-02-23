@@ -1,0 +1,64 @@
+# Menu: list under root. Order = clockwise from top.
+# Item: name (required), id/action (for submenu + icon), icon (optional, defaults to id).
+# Link: open: "https://..." or open: "C:\path\to\app"
+# Submenu: children: [ ... ]. Close: isClose: true
+root:
+  - action: open-app
+    name: Open App
+    icon: box
+    children:
+      - action: browser
+        name: Browser
+        icon: browser
+        open: https://google.com
+      - action: files
+        name: Files
+        icon: files
+        open: C:\Windows\explorer.exe
+      - action: notes
+        name: Notes
+        icon: notes
+        open: C:\Windows\System32\notepad.exe
+      - action: add-app
+        name: Add App
+        icon: plus
+  - action: presets
+    name: Presets
+    icon: bookmark
+    children:
+      - action: study
+        name: Study
+        icon: study
+      - action: gaming
+        name: Gaming
+        icon: gaming
+      - action: personal
+        name: Personal
+        icon: personal
+  - action: settings
+    name: Settings
+    icon: swap
+    children:
+      - action: toggle
+        name: Toggle
+        icon: toggle
+        type: toggle
+        default: true
+      - action: dropdown
+        name: Dropdown
+        icon: dropdown
+        type: dropdown
+        options:
+          - Option 1
+          - Option 2
+          - Option 3
+        default: 1
+      - action: value
+        name: Value
+        icon: value
+        type: value
+        default: 50
+  - action: close
+    name: Close
+    icon: exit
+    isClose: true
