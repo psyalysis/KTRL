@@ -1,5 +1,7 @@
 # KTRL
 
+https://youtu.be/1O5Od7BPujM?si=zjNMw5OaPat661e3
+
 A pretty radial shortcut menu UI I made controlled by a knob. Will upload a tutorial video soon on youtube. 
 
 ### Keybinds
